@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "blizzardnet-web": {
+    "BooksCuWebApp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/BooksCuWebApp/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,22 +25,28 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/apple-touch-icon.png",
-              "src/robots.txt",
-              "src/manifest.json",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
-            "styles": ["src/main.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -52,43 +58,30 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ],
               "serviceWorker": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            },
-            "ci": {
-              "progress": false
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "blizzardnet-web:build",
-            "hmr": true,
-            "hmrWarning": false
+            "browserTarget": "BooksCuWebApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "blizzardnet-web:build:production",
-              "hmr": false
-            },
-            "ci": {
-              "progress": false
+              "browserTarget": "BooksCuWebApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "blizzardnet-web:build"
+            "browserTarget": "BooksCuWebApp:build"
           }
         },
         "test": {
@@ -98,47 +91,96 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "scripts": [],
-            "styles": ["src/main.scss"],
             "assets": [
               "src/favicon.ico",
-              "src/apple-touch-icon.png",
-              "src/robots.txt",
-              "src/manifest.json",
-              "src/assets"
-            ]
-          },
-          "configurations": {
-            "ci": {
-              "progress": false,
-              "watch": false
-            }
+              "src/assets",
+              "src/manifest.webmanifest"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.scss"
+            ],
+            "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json",
+              "tsconfig.server.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "blizzardnet-web:serve"
+            "devServerTarget": "BooksCuWebApp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "blizzardnet-web:serve:production"
+              "devServerTarget": "BooksCuWebApp:serve:production"
             }
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/BooksCuWebApp/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "BooksCuWebApp:build",
+            "serverTarget": "BooksCuWebApp:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "BooksCuWebApp:build:production",
+              "serverTarget": "BooksCuWebApp:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "BooksCuWebApp:build:production",
+            "serverTarget": "BooksCuWebApp:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }
     }
   },
-  "defaultProject": "blizzardnet-web",
+  "defaultProject": "BooksCuWebApp",
   "cli": {
-    "analytics": "1e874394-03b0-401c-a501-c39bf69e99c5"
+    "analytics": "ab5790e8-6620-40af-961c-915fa447d2cb"
   }
 }
