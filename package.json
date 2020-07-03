@@ -39,9 +39,7 @@
     "rxjs": "^6.5.5",
     "tslib": "^1.10.1",
     "zone.js": "^0.10.3",
-    "@ngx-rocket/scripts": "^4.0.0"
-  },
-  "devDependencies": {
+    "@ngx-rocket/scripts": "^4.0.0",
     "@angular/cli": "~9.1.7",
     "@angular/compiler-cli": "^9.1.9",
     "@angular/language-service": "^9.1.9",
@@ -78,6 +76,7 @@
     "tslint": "~5.20.1",
     "typescript": "~3.8.3"
   },
+  "devDependencies": {},
   "prettier": {
     "singleQuote": true,
     "overrides": [
