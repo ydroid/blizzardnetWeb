@@ -5,17 +5,22 @@ import { SubSink } from 'subsink';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit,OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy {
   subs = new SubSink();
   total: number;
-  constructor(private guildService: HomeService) { }
+  perCents;
+  constructor(private guildService: HomeService) {}
 
   ngOnInit(): void {
-    this.subs.sink = this.guildService.getGuildDataAsObservable().subscribe(data => {
-      this.total = this.guildService.getTotal();
+    this.guildService.getGuildDataAsObservable().subscribe(data => {
+
     });
+
+    const mockData = this.guildService.getGuildataMock();
+    this.total = mockData.roster.length;
+    this.perCents = this.guildService.getMockPercents();
   }
   ngOnDestroy(): void {
     this.subs.unsubscribe();
