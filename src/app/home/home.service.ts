@@ -39,7 +39,7 @@ export class HomeService {
     const warrior = roster.filter(x => x.class == "Warrior").length;
     const shaman = roster.filter(x => x.class == "Shaman").length;
     const dk = roster.filter(x => x.class == "Death Knight").length;
-    const rogues = roster.filter(x => x.class == "Rougue").length;
+    const rogues = roster.filter(x => x.class == "Rogue").length;
     const hunters = roster.filter(x => x.class == "Hunter").length;
     return {
       druids: Math.round( (druidas * 100) / total),
