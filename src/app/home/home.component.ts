@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HomeService } from './home.service';
 import { SubSink } from 'subsink';
+import { Guild } from 'src/models/guild';
 
 @Component({
   selector: 'app-home',
@@ -9,18 +10,18 @@ import { SubSink } from 'subsink';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   subs = new SubSink();
-  total: number;
+  guild: Guild;
   perCents;
   constructor(private guildService: HomeService) {}
 
   ngOnInit(): void {
     this.guildService.getGuildDataAsObservable().subscribe(data => {
-
+      if(data !== undefined) {
+        console.log(data);
+        this.guild = data;
+        this.perCents = this.guildService.getMockPercents();
+      }
     });
-
-    const mockData = this.guildService.getGuildataMock();
-    this.total = mockData.roster.length;
-    this.perCents = this.guildService.getMockPercents();
   }
   ngOnDestroy(): void {
     this.subs.unsubscribe();

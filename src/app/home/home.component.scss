@@ -50,5 +50,53 @@ app-bar {
     .title {
       font-size: 30px;
     }
+    .stats-players {
+      margin: 45px;
+      width: 80%;
+      .cat {
+        padding: 40px;
+        min-width: 200px;
+        margin: 25px;
+        background-color: #e0dede;
+        min-height: 50px;
+        border-radius: 3px;
+        .bar {
+          position: absolute;
+          top: 0px;
+          width: 100%;
+          height: 6px;
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+
+        }
+        .druida {
+          background-color: #FF7D0A;
+        }
+        .paladin {
+          background-color: #F58CBA;
+        }
+        .priest {
+          background-color: white;
+        }
+        .rogue {
+          background-color: #FFF569;
+        }
+        .mage {
+          background-color: #40C7EB;
+        }
+        .warriors{
+          background-color: #C79C6E;
+        }
+        .shamans{
+          background-color: #0070DE;
+        }
+        .dk{
+          background-color: #C41F3B;
+        }
+        .hunter {
+          background-color: #A9D271;
+        }
+      }
+    }
   }
 }

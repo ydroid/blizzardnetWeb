@@ -1,28 +1,26 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Guild } from '../../models/guild';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
-  _guildInfo: any;
+  _guildInfo: Guild;
   private subjet = new BehaviorSubject(this._guildInfo);
   constructor(private http: HttpClient) {
     this.getGuildData();
   }
 
-  getGuildDataAsObservable(): Observable<any> {
+  getGuildDataAsObservable(): Observable<Guild> {
     return this.subjet.asObservable();
   }
 
   async getGuildData() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin':'*'
-      })
-    }
-    this._guildInfo = await this.http.get('https://armory.warmane.com/api/guild/BlizzarNetCuba/Icecrown/summary', httpOptions).toPromise();
+
+    this._guildInfo = await this.http.get<Guild>('https://webhooks.mongodb-stitch.com/api/client/v2.0/app/datastore-jrmao/service/guildData/incoming_webhook/guildInfo').toPromise();
+    this.subjet.next(this._guildInfo);
   }
 
   getTotal(): number {
@@ -34,7 +32,7 @@ export class HomeService {
     const roster = data.roster;
     const total = roster.length;
     const druidas = roster.filter(x => x.class == "Druid").length;
-    const paladins = roster.filter(x => x.class == "Paladins").length;
+    const paladins = roster.filter(x => x.class == "Paladin").length;
     const warlocks = roster.filter(x => x.class == "Warlock").length;
     const priest = roster.filter(x => x.class == "Priest").length;
     const mage = roster.filter(x => x.class == "Mage").length;
@@ -42,16 +40,18 @@ export class HomeService {
     const shaman = roster.filter(x => x.class == "Shaman").length;
     const dk = roster.filter(x => x.class == "Death Knight").length;
     const rogues = roster.filter(x => x.class == "Rougue").length;
+    const hunters = roster.filter(x => x.class == "Hunter").length;
     return {
-      druids: (druidas * 100) / total,
-      paladins: (paladins * 100) / total,
-      warlocks: (warlocks * 100) / total,
-      priests: (priest * 100) / total,
-      mages: (mage * 100) /total,
-      warrior: (warrior * 100) / total,
-      shamans: (shaman * 100 ) / total,
-      dks: (dk * 100) / total,
-      rogues: (rogues * 100) / total
+      druids: Math.round( (druidas * 100) / total),
+      paladins: Math.round( (paladins * 100) / total),
+      warlocks: Math.round( (warlocks * 100) / total),
+      priests: Math.round( (priest * 100) / total),
+      mages: Math.round( (mage * 100) /total),
+      warriors: Math.round( (warrior * 100) / total),
+      shamans: Math.round( (shaman * 100 ) / total),
+      dks: Math.round( (dk * 100) / total),
+      rogues: Math.round( (rogues * 100) / total),
+      hunters: Math.round( (hunters * 100) / total),
     }
   }
 

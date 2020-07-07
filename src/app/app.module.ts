@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     HomeModule,
     HttpClientModule,
+    HttpClientJsonpModule,
     RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
