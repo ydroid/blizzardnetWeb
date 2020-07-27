@@ -1,0 +1,29 @@
+<div fxFlex>
+  <div class="full-width mat-typography" id="homepage" fxLayout="column" fxLayoutAlign="center">
+    <app-bar></app-bar>
+    <header class="header" fxLayout="column" fxLayoutAlign="start center">
+      <div class="hero-text mb-16">
+        <h1>BlizzardNet Guild</h1>
+        <span>Hermandad de Warcraft, un lugar para todos</span>
+      </div>
+      <div class="social-media" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+        <a class="social-link" mat-icon-button href="https://github.com/ydroid/blizzardnetWeb" target="_blanck">
+
+          <img src="/assets/icons/discord.svg" />
+        </a>
+        <a mat-icon-button class="social-link" href="https://github.com/ydroid/blizzardnetWeb" target="_blanck">
+          <img src="/assets/icons/facebook-square-color.svg" />
+        </a>
+      </div>
+
+    </header>
+    <div id="content" fxLayout="column" fxLayoutAlign="center center">
+      <router-outlet></router-outlet>
+    </div>
+    <footer>
+      
+    </footer>
+    <img class="fondo" src="/assets/images/alliance-logo.png" />
+  </div>
+</div>
+

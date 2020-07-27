@@ -1,0 +1,39 @@
+@import 'src/theme/theme-variables';
+:host {
+  display: flex;
+  flex: 1;
+}
+.content-wrapper {
+  border-radius: 5px;
+  margin-top: -180px;
+  background-image: url('/assets/images/background-ligth.jpg');
+}
+.pvp-section {
+  padding-top: 55px;
+  color: white;
+  width: 1139.81px;
+  .equipos {
+    width: 100%;
+    padding: 0px 30px;
+    .title {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    min-height: 600px;
+    .teams {
+      width: 100%;
+      .mat-ink-bar {
+        background-color: #C41F3B;
+        height: 3px;
+      }
+      .tab-title {
+        color: white;
+        font-weight: 400;
+        font-size: 22px;
+      }
+      .teams-list {
+        padding: 20px 0px;
+      }
+    }
+  }
+}

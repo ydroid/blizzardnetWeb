@@ -1,11 +1,11 @@
-export interface PLayer {
-  achievementpoints: string;
+export interface Player {
   class: string;
   classmask: number;
+  racemask: number;
   gender: string;
-  level: number;
+  level: string;
   name: string;
-  online: boolean;
-  professions: any;
   race: string;
+  online: boolean;
+  achievementpoints: string;
 }

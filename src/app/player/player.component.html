@@ -1,0 +1,262 @@
+<div class="content-wrapper mat-elevation-z8">
+  <div *ngIf="loading" class="player" fxLayout="column" fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
+    <span>Cargando</span>
+  </div>
+  <div *ngIf="!loading" class="player" fxLayout="column" fxLayoutAlign="start start">
+    <div class="playerhead" fxLayout="row wrap">
+      <div fxLayout="column">
+        <span class="title">{{name}}</span>
+        <span class="subtitle">Nivel {{player?.level}} {{player?.class}} {{player?.race}}</span>
+
+      </div>
+      <div fxFlex></div>
+      <div fxLayout="column" fxLayoutAlign="end end">
+        <span class="title"> <mat-icon >loyalty</mat-icon> {{player?.achievementpoints}}</span>
+        <span class="subtitle">Puntos de logros</span>
+      </div>
+    </div>
+    <div class="equipment" fxLayout="row" fxLayoutAlign="start" >
+      <div class="slot" style={{getBackground()}} fxLayout="column" fxLayoutAlign="start">
+        <div class="armadure" fxLayout="row" fxLayoutAlign="start">
+          <div class="left" fxLayout="column" fxLayoutGap="3px" fxLayoutAlign="start">
+            <div class="icon ">
+              <a *ngIf="getItem(0) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(0).item}}" rel={{getItem(0).rel}} >
+                <img src={{getItem(0).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(1) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(1).item}}" rel={{getItem(1).rel}} >
+                <img src={{getItem(1).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(2) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(2).item}}" rel={{getItem(2).rel}} >
+                <img src={{getItem(2).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(3) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(3).item}}" rel={{getItem(3).rel}} >
+                <img src={{getItem(3).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(4) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(4).item}}" rel={{getItem(4).rel}} >
+                <img src={{getItem(4).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(5) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(5).item}}" rel={{getItem(5).rel}} >
+                <img src={{getItem(5).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(6) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(6).item}}" rel={{getItem(6).rel}} >
+                <img src={{getItem(6).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(7) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(7).item}}" rel={{getItem(7).rel}} >
+                <img src={{getItem(7).href}} />
+              </a>
+            </div>
+
+
+          </div>
+          <div fxFlex></div>
+          <div class="rigth" fxLayout="column" fxLayoutGap="3px" fxLayoutAlign="start">
+            <div class="icon">
+              <a *ngIf="getItem(8) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(8).item}}" rel={{getItem(8).rel}} >
+                <img src={{getItem(8).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(9) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(9).item}}" rel={{getItem(9).rel}} >
+                <img src={{getItem(9).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(10) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(10).item}}" rel={{getItem(10).rel}} >
+                <img src={{getItem(10).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(11) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(11).item}}" rel={{getItem(11).rel}} >
+                <img src={{getItem(11).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(12) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(12).item}}" rel={{getItem(12).rel}} >
+                <img src={{getItem(12).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(13) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(13).item}}" rel={{getItem(13).rel}} >
+                <img src={{getItem(13).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(14) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(14).item}}" rel={{getItem(14).rel}} >
+                <img src={{getItem(14).href}} />
+              </a>
+            </div>
+            <div class="icon ">
+              <a *ngIf="getItem(15) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(15).item}}" rel={{getItem(15).rel}} >
+                <img src={{getItem(15).href}} />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div fxFlex></div>
+        <div class="weapons" fxLayout="row" fxLayoutGap="3px" fxLayoutAlign="center end">
+          <div class="icon ">
+            <a *ngIf="getItem(16) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(16).item}}" rel={{getItem(16).rel}} >
+              <img src={{getItem(16).href}} />
+            </a>
+          </div>
+          <div class="icon ">
+            <a *ngIf="getItem(17) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(17).item}}" rel={{getItem(17).rel}} >
+              <img src={{getItem(17).href}} />
+            </a>
+          </div>
+          <div class="icon ">
+            <a *ngIf="getItem(18) !== undefined" target="_blank" href="http://wotlk.cavernoftime.com/item={{getItem(18).item}}" rel={{getItem(18).rel}} >
+              <img src={{getItem(18).href}} />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div fxFlex></div>
+      <div class="stats" fxLayout="row wrap" fxLayoutAlign="start">
+        <div class="statcontainer" *ngFor="let item of stats | keyvalue" fxLayout="column" fxLayoutAlign="start">
+          <span class="title">{{item.key}}</span>
+          <div *ngFor="let item1 of item.value | keyvalue" >
+            <span style="text-align: left;">{{item1.key}}:</span> <span style="text-align: right;">{{item1.value}}</span>
+          </div>
+        </div>
+      </div>
+      <div fxFlex></div>
+      <div class="misc" fxLayout="column">
+        <div class="talentos" fxLayout="column">
+          <div class="title">Especializaciones</div>
+          <div class="spec" *ngFor="let spec of talentos" fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start start">
+            <img class="specicon" src="/assets/icons/spec/{{player?.classmask}}-{{spec.tree.toLowerCase()}}.png" />
+            <span class="specname">{{spec.tree}}</span>
+            <div fxFlex></div>
+            <span class="talentspoint">{{spec.points.join(' / ')}}</span>
+          </div>
+        </div>
+        <div class="profesiones" fxLayout="column">
+          <div class="title">Profesiones</div>
+          <div class="profesion" *ngFor="let prof of profesiones" fxLayoutGap="8px" fxLayout="row" fxLayoutAlign="start start">
+            <img class="specicon" src="/assets/icons/profes/{{prof.name.toLowerCase()}}.png" />
+            <span>{{prof.name}}</span>
+            <div fxFlex></div>
+            <span>{{prof.skill}} / 450</span>
+          </div>
+        </div>
+        <div class="secundarias" fxLayout="column">
+          <div class="title">Secundarias</div>
+          <div class="profesion" *ngFor="let prof of secondaryProfessions" fxLayoutGap="8px" fxLayout="row" fxLayoutAlign="start start">
+            <img class="specicon" src="/assets/icons/profes/{{prof.name.toLowerCase()}}.png" />
+            <span>{{prof.name}}</span>
+            <div fxFlex></div>
+            <span>{{prof.skill}} / 450</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pvp" fxLayout="column" fxLayoutAlign="start">
+      <span class="title" >Player vs. Player</span>
+      <div fxLayout="row wrap">
+        <div class="team" [ngClass]="{'backactive': getTeam('2v2')}">
+          <div class="teamhead" fxLayout="row">
+            <span class="title" [ngClass]="{'active': getTeam('2v2')}">2v2</span>
+
+            <div *ngIf="getTeam('2v2') !== undefined" fxLayout="column" fxLayoutAlign="start end">
+
+            </div>
+          </div>
+          <div *ngIf="getTeam('2v2') !== undefined" class="teamstats" fxLayout="row">
+            <span>Team: <span class="rating">{{getTeam('2v2').name.toUpperCase()}}</span></span>
+            <div fxFlex></div>
+            <span >Rating: <span class="rating">{{getTeam('2v2').rating}}</span></span>
+            <div fxFlex></div>
+            <span >Rank: <span class="rating">{{getTeam('2v2').rank}}</span></span>
+          </div>
+        </div>
+        <div fxFlex></div>
+          <div class="team" [ngClass]="{'backactive': getTeam('3v3')}">
+            <div class="teamhead" fxLayout="row">
+              <span class="title" [ngClass]="{'active': getTeam('3v3')}">3v3</span>
+
+              <div *ngIf="getTeam('3v3') !== undefined" fxLayout="column" fxLayoutAlign="start end">
+
+              </div>
+            </div>
+            <div *ngIf="getTeam('3v3') !== undefined" class="teamstats" fxLayout="row">
+              <span>Team: <span class="rating">{{getTeam('3v3').name.toUpperCase()}}</span></span>
+              <div fxFlex></div>
+              <span >Rating: <span class="rating">{{getTeam('3v3').rating}}</span></span>
+              <div fxFlex></div>
+              <span >Rank: <span class="rating">{{getTeam('3v3').rank}}</span></span>
+            </div>
+        </div>
+        <div fxFlex></div>
+          <div class="team" [ngClass]="{'backactive': getTeam('5v5')}">
+            <div class="teamhead" fxLayout="row">
+              <span class="title" [ngClass]="{'active': getTeam('5v5')}">5v5</span>
+
+              <div *ngIf="getTeam('5v5') !== undefined" fxLayout="column" fxLayoutAlign="start end">
+
+              </div>
+            </div>
+            <div *ngIf="getTeam('5v5') !== undefined" class="teamstats" fxLayout="row">
+              <span>Team: <span class="rating">{{getTeam('5v5').name.toUpperCase()}}</span></span>
+              <div fxFlex></div>
+              <span >Rating: <span class="rating">{{getTeam('5v5').rating}}</span></span>
+              <div fxFlex></div>
+              <span >Rank: <span class="rating">{{getTeam('5v5').rank}}</span></span>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="instancias" fxLayout="column" fxLayoutAlign="start" >
+      <span class="title">Intancias</span>
+      <div fxLayout="row">
+        <div class="instaceContainer" fxLayout="column">
+          <span class="subtitle">Clasicas</span>
+          <div fxLayout="row wrap" fxLayoutGap="6px">
+            <div class="instance" matTooltipClass="tooltip" matTooltip={{classic.title}} *ngFor="let classic of iClassic">
+              <img [ngClass]="{'inactive': classic.complete == false}" src={{classic.icon}} />
+            </div>
+          </div>
+        </div>
+        <div fxFlex></div>
+        <div class="instaceContainer" fxLayout="column">
+          <span class="subtitle">Burning Crusade</span>
+          <div fxLayout="row wrap" fxLayoutGap="6px">
+            <div class="instance" matTooltipClass="tooltip" matTooltip={{classic.title}} *ngFor="let classic of iBurnning">
+              <img [ngClass]="{'inactive': classic.complete == false}" src={{classic.icon}} />
+            </div>
+          </div>
+        </div>
+        <div fxFlex></div>
+        <div class="instaceContainer" fxLayout="column">
+          <span class="subtitle">Lick King</span>
+          <div fxLayout="row wrap" fxLayoutGap="6px">
+            <div class="instance" matTooltipClass="tooltip" matTooltip={{classic.title}} *ngFor="let classic of iLk">
+              <img [ngClass]="{'inactive': classic.complete == false}" src={{classic.icon}} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="raids" fxLayout="column" fxLayoutAlign="start">
+      <span class="title">RAIDS</span>
+      <span> En construcción</span>
+    </div>
+  </div>
+</div>

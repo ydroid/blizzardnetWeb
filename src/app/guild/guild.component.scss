@@ -1,0 +1,52 @@
+@import 'src/theme/theme-variables';
+:host {
+  display: flex;
+  flex: 1;
+}
+.content-wrapper {
+  border-radius: 5px;
+  margin-top: -180px;
+  background-image: url('/assets/images/background-ligth.jpg');
+}
+.info {
+  padding-top: 55px;
+  color: white;
+  width: 1139.81px;
+  .title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .topicos {
+    width: 100%;
+    padding: 0px 40px;
+    min-height: 600px;
+    .mat-ink-bar {
+      background-color: #C41F3B;
+      height: 3px;
+    }
+    .tab-title {
+      color: white;
+      font-weight: 400;
+      font-size: 22px;
+    }
+    .muela {
+      padding: 20px 40px;
+      .main-description {
+        font-size: 17px;
+        margin-bottom: 40px;
+      }
+    }
+    .reglas {
+      padding: 20px 40px;
+      ul {
+        list-style: square;
+      }
+    }
+    .dkp {
+      padding: 20px 40px;
+    }
+    .contact {
+      padding: 20px 40px;
+    }
+  }
+}

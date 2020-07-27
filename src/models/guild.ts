@@ -1,7 +1,9 @@
-import { PLayer } from "./player";
+import { Player } from "./player";
+import { Leader } from './leader';
 
 export interface Guild {
   faction: string;
-  membercount: number;
-  roster: PLayer[];
+  membercount: string;
+  roster: Player[];
+  leader: Leader;
 }

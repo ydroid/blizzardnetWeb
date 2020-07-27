@@ -1,0 +1,61 @@
+.fondo {
+  float: right;
+  bottom: -180px;
+  right: 10vh;
+  position: fixed;
+  width: 400px;
+  height: auto;
+  opacity: 0.1;
+  transform: rotate(-20deg);
+  filter: grayscale(100%);
+  z-index: 4;
+}
+.full-width {
+  display: flex;
+  flex: 1 0 auto;
+  width: 100%;
+
+  -webkit-box-flex: 1;
+}
+app-bar {
+  z-index: 2;
+}
+#homepage {
+
+  .header {
+    margin-top: -64px;
+    background-color: #e91e63;
+    background-image: url('/assets/images/head.png');
+    background-size: cover;
+    background-position: right;
+    height: 500px;
+    .hero-text {
+      margin: 90px 0px 40px 0px;
+      text-align: center;
+      h1 {
+        color: white;
+        font-size: 40px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 16px;
+        text-shadow: 2px 2px #031328;
+      }
+      span {
+        color: white;
+        font-weight: 300;
+        text-shadow: 2px 2px #031328;
+      }
+    }
+    .social-media {
+      a {
+        display: inline;
+      }
+    }
+  }
+  #content {
+    background-image: url('/assets/images/background.jpg');
+    padding: 0px 40vh;
+  }
+}

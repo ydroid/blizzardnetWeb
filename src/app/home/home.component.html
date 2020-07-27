@@ -1,72 +1,150 @@
-<div class="full-width mat-typography" id="homepage" fxLayout="column" fxLayoutAlign="center">
-  <app-bar class="mat-elevation-z6"></app-bar>
-  <header class="header" fxLayout="column" fxLayoutAlign="start center">
-    <div class="hero-text mb-16">
-      <h1>BlizzardNet Guild</h1>
-      <span>Hermandad de Warcraft, un lugar para todos</span>
-    </div>
-    <div class="social-media" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
-      <a class="social-link" mat-icon-button href="https://github.com/ydroid/blizzardnetWeb" target="_blanck">
 
-        <img src="/assets/icons/discord.svg" />
-      </a>
-      <a mat-icon-button class="social-link" href="https://github.com/ydroid/blizzardnetWeb" target="_blanck">
-        <img src="/assets/icons/facebook-square-color.svg" />
-      </a>
-    </div>
-  </header>
-  <div id="content" fxLayout="column">
-    <div class="stats" fxLayout="column" fxLayoutAlign="center center">
-      <div class="title" fxFlex="100">{{guild?.membercount}} Miembros</div>
-      <div class="stats-players" fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
-        <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
-          <div class="bar druida"></div>
-          <mat-card-title class="title">{{perCents?.druids || 0}}%</mat-card-title>
-          <mat-card-subtitle class="subtitle">Druidas</mat-card-subtitle>
-        </mat-card>
-        <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
-          <div class="bar paladin"></div>
-          <mat-card-title class="title">{{perCents?.paladins || 0}}%</mat-card-title>
-          <mat-card-subtitle class="subtitle">Paladines</mat-card-subtitle>
-        </mat-card>
-        <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
-          <div class="bar priest"></div>
-          <mat-card-title class="title">{{perCents?.priests || 0}}%</mat-card-title>
-          <mat-card-subtitle class="subtitle">Sacerdotes</mat-card-subtitle>
-        </mat-card>
-        <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
-          <div class="bar rogue"></div>
-          <mat-card-title class="title">{{perCents?.rogues || 0}}%</mat-card-title>
-          <mat-card-subtitle class="subtitle">Pícaros</mat-card-subtitle>
-        </mat-card>
-        <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
-          <div class="bar mage"></div>
-          <mat-card-title class="title">{{perCents?.mages || 0}}%</mat-card-title>
-          <mat-card-subtitle class="subtitle">Magos</mat-card-subtitle>
-        </mat-card>
-        <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
-          <div class="bar warriors"></div>
-          <mat-card-title class="title">{{perCents?.warriors || 0}}%</mat-card-title>
-          <mat-card-subtitle class="subtitle">Guerreros</mat-card-subtitle>
-        </mat-card>
-        <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
-          <div class="bar shamans"></div>
-          <mat-card-title class="title">{{perCents?.shamans || 0}}%</mat-card-title>
-          <mat-card-subtitle class="subtitle">Chamanes</mat-card-subtitle>
-        </mat-card>
-        <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
-          <div class="bar dk"></div>
-          <mat-card-title class="title">{{perCents?.dks || 0}}%</mat-card-title>
-          <mat-card-subtitle class="subtitle">Death Knigths</mat-card-subtitle>
-        </mat-card>
-        <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
-          <div class="bar hunter"></div>
-          <mat-card-title class="title">{{perCents?.hunters || 0}}%</mat-card-title>
-          <mat-card-subtitle class="subtitle">Cazadores</mat-card-subtitle>
-        </mat-card>
+    <div class="content-wrapper mat-elevation-z8">
+      <div class="stats" fxLayout="column" fxLayoutAlign="center center">
+        <div class="title" fxFlex="100">Líder</div>
+        <div class="leader" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" >
+          <span class={{leader?.class}}>{{leader?.name}}</span>
+          <img class="class-icon" src="/assets/icons/{{leader?.classmask}}.png" />
+          <img class="class-icon" src="/assets/icons/races/{{leader?.racemask}}-{{leader?.gender.toLowerCase()}}.png" />
+          <span>{{leader?.level}}</span>
+        </div>
+        <div class="stats-players" fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
+          <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
+            <img src="/assets/images/druid_crest.png" />
+            <mat-card-title class="title">{{perCents?.druids || 0}}%</mat-card-title>
+            <mat-card-subtitle class="subtitle druida">Druidas</mat-card-subtitle>
+          </mat-card>
+          <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
+            <img src="/assets/images/paladin_crest.png" />
+            <mat-card-title class="title">{{perCents?.paladins || 0}}%</mat-card-title>
+            <mat-card-subtitle class="subtitle paladin">Paladines</mat-card-subtitle>
+          </mat-card>
+          <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
+            <img src="/assets/images/priest_crest.png" />
+            <mat-card-title class="title">{{perCents?.priests || 0}}%</mat-card-title>
+            <mat-card-subtitle class="subtitle priest">Sacerdotes</mat-card-subtitle>
+          </mat-card>
+          <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
+            <img src="/assets/images/rogue_crest.png" />
+            <mat-card-title class="title">{{perCents?.rogues || 0}}%</mat-card-title>
+            <mat-card-subtitle class="subtitle rogue">Pícaros</mat-card-subtitle>
+          </mat-card>
+          <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
+            <img src="/assets/images/mage_crest.png" />
+            <mat-card-title class="title">{{perCents?.mages || 0}}%</mat-card-title>
+            <mat-card-subtitle class="subtitle mage">Magos</mat-card-subtitle>
+          </mat-card>
+          <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
+            <img src="/assets/images/warrior_crest.png" />
+            <mat-card-title class="title">{{perCents?.warriors || 0}}%</mat-card-title>
+            <mat-card-subtitle class="subtitle warriors">Guerreros</mat-card-subtitle>
+          </mat-card>
+          <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
+            <img src="/assets/images/shaman_crest.png" />
+            <mat-card-title class="title">{{perCents?.shamans || 0}}%</mat-card-title>
+            <mat-card-subtitle class="subtitle shamans">Chamanes</mat-card-subtitle>
+          </mat-card>
+          <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
+            <img src="/assets/images/dk_crest.png" />
+            <mat-card-title class="title">{{perCents?.dks || 0}}%</mat-card-title>
+            <mat-card-subtitle class="subtitle dk">Death Knigths</mat-card-subtitle>
+          </mat-card>
+          <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
+            <img src="/assets/images/hunter_crest.png" />
+            <mat-card-title class="title">{{perCents?.hunters || 0}}%</mat-card-title>
+            <mat-card-subtitle class="subtitle hunter">Cazadores</mat-card-subtitle>
+          </mat-card>
+          <mat-card class="cat" fxLayout="column" fxLayoutAlign="center center">
+            <img src="/assets/images/warlock_crest.png" />
+            <mat-card-title class="title">{{perCents?.warlocks || 0}}%</mat-card-title>
+            <mat-card-subtitle class="subtitle Warlock">Brujos</mat-card-subtitle>
+          </mat-card>
+        </div>
+      </div>
+      <div class="roster" fxLayout="column" fxLayoutAlign="center center">
+        <div class="title" fxFlex="100">Lista de Miembros</div>
+        <div class="lista-players" fxLayout="column" fxLayoutAlign="center center">
+          <mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort>
+
+            <!-- Column online -->
+            <ng-container matColumnDef="online" [sticky]="true">
+              <mat-header-cell *matHeaderCellDef mat-sort-header><span>?</span></mat-header-cell>
+              <mat-cell
+                *matCellDef="let player">
+                <div class="round {{player?.online}}"></div>
+              </mat-cell>
+            </ng-container>
+
+            <!-- column Name-->
+            <ng-container matColumnDef="name" [sticky]="true">
+              <mat-header-cell *matHeaderCellDef mat-sort-header><span>Nombre</span></mat-header-cell>
+              <mat-cell
+                *matCellDef="let player">
+                <span class={{player?.class}}>{{player?.name}}</span>
+              </mat-cell>
+            </ng-container>
+
+            <!-- column Level-->
+            <ng-container matColumnDef="level" [sticky]="true">
+              <mat-header-cell *matHeaderCellDef mat-sort-header><span>Nivel</span></mat-header-cell>
+              <mat-cell
+                *matCellDef="let player">
+                {{player?.level}}
+              </mat-cell>
+            </ng-container>
+
+            <!-- column class-->
+            <ng-container matColumnDef="class" [sticky]="true">
+              <mat-header-cell *matHeaderCellDef mat-sort-header><span>Clase</span></mat-header-cell>
+              <mat-cell
+                *matCellDef="let player">
+                <img class="class-icon" src="/assets/icons/{{player?.classmask}}.png" />
+              </mat-cell>
+            </ng-container>
+
+            <!-- column raza-->
+            <ng-container matColumnDef="race" [sticky]="true">
+              <mat-header-cell *matHeaderCellDef mat-sort-header><span>Raza</span></mat-header-cell>
+              <mat-cell
+                *matCellDef="let player">
+                <img class="class-icon" src="/assets/icons/races/{{player?.racemask}}-{{player?.gender.toLowerCase()}}.png" />
+              </mat-cell>
+            </ng-container>
+
+
+            <!-- Column online -->
+            <ng-container matColumnDef="achievementpoints" [sticky]="true">
+              <mat-header-cell *matHeaderCellDef mat-sort-header><span>Logros</span></mat-header-cell>
+              <mat-cell
+                *matCellDef="let player">
+                {{player?.achievementpoints}}
+              </mat-cell>
+            </ng-container>
+            <!-- Column online -->
+            <ng-container matColumnDef="profeciones" [sticky]="true">
+              <mat-header-cell *matHeaderCellDef mat-sort-header><span>Profesiones</span></mat-header-cell>
+              <mat-cell
+                *matCellDef="let player">
+                <img *ngIf="player?.professions?.professions != undefined" class="class-icon" src="/assets/icons/profes/{{player?.professions?.professions[0]?.name.toLowerCase()}}.png" />
+                <img *ngIf="player?.professions?.professions != undefined && player?.professions?.professions?.length > 1" class="class-icon" src="/assets/icons/profes/{{player?.professions?.professions[1]?.name.toLowerCase()}}.png" />
+              </mat-cell>
+            </ng-container>
+
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row
+              class="element-row"
+              *matRowDef="let row; columns: displayedColumns"
+              (mouseover)="row.hovered = true"
+              (mouseout)="row.hovered = false"
+              (click)="navigateTo(row.name)"
+            ></mat-row>
+          </mat-table>
+          <mat-paginator showFirstLastButtons></mat-paginator>
+        </div>
+
       </div>
     </div>
-  </div>
-</div>
+
 
 

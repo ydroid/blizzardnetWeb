@@ -1,6 +1,14 @@
 .primaryBar {
+  background: transparent;
+  padding: 0px 40vh;
+  color: white;
   span {
     cursor: pointer;
+    outline: none;
+    margin-right: 10px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 .spacer {
