@@ -19,10 +19,10 @@ export class HomeService {
 
   async getGuildData() {
 
-    /*this._guildInfo = await this.http.get<Guild>('http://localhost:3000/api/Stripe/info').toPromise();
-    this.subjet.next(this._guildInfo);*/
-    this._guildInfo = this.getGuildataMock()
+    this._guildInfo = await this.http.get<Guild>('https://stripe-calculator.herokuapp.com/api/Stripe/info').toPromise();
     this.subjet.next(this._guildInfo);
+    /*this._guildInfo = this.getGuildataMock()
+    this.subjet.next(this._guildInfo);*/
   }
 
   getTotal(): number {

@@ -16,11 +16,11 @@ export class PlayerService {
   }
 
   getAlgo(playerName: string) {
-    return this.http.get<any>('http://localhost:3000/api/Stripe/playerInfo?playerName=' + playerName);
+    return this.http.get<any>('https://stripe-calculator.herokuapp.com/api/Stripe/playerInfo?playerName=' + playerName);
   }
 
   async getProfileData(playerName: string) {
-    this._player = await this.http.get<any>('http://localhost:3000/api/Stripe/playerInfo?playerName=' + playerName)
+    this._player = await this.http.get<any>('https://stripe-calculator.herokuapp.com/api/Stripe/playerInfo?playerName=' + playerName)
     .toPromise();
     /*this._player = this.getMockedData();*/
     this.subjet.next(this._player);
