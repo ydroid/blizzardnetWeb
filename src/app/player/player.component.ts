@@ -57,10 +57,10 @@ export class PlayerComponent implements OnInit, OnDestroy {
             this.iLk = this.player?.dungeons.lk;
             this.meta.addTags([
               { name: 'twitter:card', content: 'summary' },
-              { name: 'og:url', content: '/player/' + param.name },
+              { name: 'og:url', content: 'https://blizzardnet.herokuapp.com/player/' + param.name },
               { name: 'og:title', content: param.name +' - BlizzardNet Guild' },
               { name: 'og:description', content: this.player?.level + " " + this.player?.race + " " +this.player?.class },
-              { name: 'og:image', content: "/assets/icons/races/" + this.player?.racemask+"-"+this.player?.gender.toLowerCase()+".png" },
+              { name: 'og:image', content: "https://blizzardnet.herokuapp.com/assets/icons/races/" + this.player?.racemask+"-"+this.player?.gender.toLowerCase()+".png" },
             ]);
             console.log(this.player);
             this.loading = false;
